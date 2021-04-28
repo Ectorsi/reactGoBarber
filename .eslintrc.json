@@ -19,6 +19,7 @@
     "prettier"
   ],
   "rules": {
+    "import/no-duplicates": "off",
     "camelcase": "off",
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading":"off",
