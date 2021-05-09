@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { BrowserRouter as Router } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import SignIn from './pages/Signin';
+import SignIn from './pages/SignIn';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import GlobalStyle from './styles/global';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
