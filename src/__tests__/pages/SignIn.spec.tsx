@@ -15,8 +15,8 @@ jest.mock('react-router-dom', () => {
 
 jest.mock('../../hooks/auth', () => {
   return {
-    useAuth: ({
-      signIn: jest.fn()
+    useAuth: () => ({
+      signIn: jest.fn(),
     }),
   };
 });
