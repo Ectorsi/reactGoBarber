@@ -1,4 +1,4 @@
-import React from  'react';
+import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import SignIn from '../../pages/SignIn';
 
@@ -9,9 +9,9 @@ jest.mock('react-router-dom', () => {
     useHistory: () => ({
       push: mockedHistoryPush,
     }),
-    Link: ({children}: {children: React.ReactNode}) => children,
-  }
-})
+    Link: ({ children }: { children: React.ReactNode }) => children,
+  };
+});
 
 jest.mock('../../hooks/auth', () => {
   return {
@@ -21,21 +21,20 @@ jest.mock('../../hooks/auth', () => {
   };
 });
 describe('SignIn Page', () => {
-  it('shoud be able to sign in', async() => {
+  it('shoud be able to sign in', async () => {
     const { getByPlaceholderText, getByText } = render(<SignIn />);
 
     const emailField = getByPlaceholderText('E-mail');
     const passwordField = getByPlaceholderText('Senha');
     const buttonElement = getByText('Entrar');
 
-    fireEvent.change(emailField, {target: {value: 'jose@gamil.com'}});
-    fireEvent.change(passwordField, {target: {value: '123456'}});
+    fireEvent.change(emailField, { target: { value: 'jose@gamil.com' } });
+    fireEvent.change(passwordField, { target: { value: '123456' } });
 
-    fireEvent.click(buttonElement)
+    fireEvent.click(buttonElement);
 
     await waitFor(() => {
-    expect(mockedHistoryPush).toHaveBeenCalledWith('/dashboard');
-
-    })
-  })
-})
+      expect(mockedHistoryPush).toHaveBeenCalledWith('/dashboard');
+    });
+  });
+});
