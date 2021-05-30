@@ -1,8 +1,9 @@
 import React, { useCallback, useRef } from 'react';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
-import { FormHandles } from '@unform/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { FormHandles } from '@unform/core';
+
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
@@ -12,12 +13,10 @@ import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logoImg from '../../assets/logo.svg';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Input from '../../components/Input/index';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 import Button from '../../components/Button/index';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Container, Content, AnimationContainer, Background } from './styles';
 
 interface SignInFormData {
