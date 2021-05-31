@@ -43,6 +43,12 @@ const AuthProvider: React.FC = ({ children }) => {
 
     return {} as AuthState;
   });
+  const signOut = useCallback(() => {
+    localStorage.removeItem('@GoBarber:token');
+    localStorage.removeItem('@GoBarber:user');
+
+    setData({} as AuthState);
+  }, []);
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('sessions', {
       email,
@@ -57,13 +63,6 @@ const AuthProvider: React.FC = ({ children }) => {
     api.defaults.headers.authorization = `bearer ${token}`;
 
     setData({ token, user });
-  }, []);
-
-  const signOut = useCallback(() => {
-    localStorage.removeItem('@GoBarber:token');
-    localStorage.removeItem('@GoBarber:user');
-
-    setData({} as AuthState);
   }, []);
 
   const updateUser = useCallback(
@@ -88,10 +87,6 @@ const AuthProvider: React.FC = ({ children }) => {
 
 function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error('useAuth must be used an AuthProvider');
-  }
 
   return context;
 }
